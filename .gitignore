@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Unused frames folder
+public/frames-desktop
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
