@@ -39,7 +39,7 @@ const SERVICES = [
     icon: Truck,
     title: 'Tuneleras de Gran Escala',
     desc: 'Equipamiento de última generación para proyectos de infraestructura mayor.',
-    img: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
     span: 'col-span-12 md:col-span-8 row-span-1',
   },
   {
@@ -101,13 +101,11 @@ function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
       <div className={`mx-auto max-w-6xl px-6 flex items-center justify-between rounded-2xl transition-all duration-500 ${scrolled ? 'glass-card py-3 mx-6' : 'py-0'}`}>
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-franil-accent flex items-center justify-center">
-            <Drill size={16} className="text-franil-dark" />
-          </div>
-          <span className="font-bold text-xl tracking-tight text-franil-text">
-            FRANIL
-          </span>
+        <a href="#" className="flex items-center gap-3 group">
+          <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0">
+              <img src="/logo-franil.png" alt="Franil" className="w-full h-full object-contain" />
+            </div>
+          <span className="text-2xl text-franil-text tracking-widest" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>FRANIL</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-1">
@@ -308,11 +306,11 @@ function Services() {
   }, [])
 
   return (
-    <section id="servicios" ref={sectionRef} className="py-32 md:py-48 px-6">
+    <section id="servicios" ref={sectionRef} className="py-20 md:py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <p className="text-franil-accent text-sm font-semibold tracking-widest uppercase mb-4">Lo que hacemos</p>
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.05] tracking-[-0.025em] text-franil-text max-w-2xl">
+          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.05] tracking-[-0.025em] text-franil-text max-w-5xl whitespace-nowrap">
             Soluciones completas bajo tierra
           </h2>
         </div>
@@ -483,7 +481,7 @@ function Machines() {
   }, [])
 
   return (
-    <section id="maquinas" ref={sectionRef} className="py-32 md:py-48 px-6">
+    <section id="maquinas" ref={sectionRef} className="py-20 md:py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
@@ -600,29 +598,20 @@ function Projects() {
   const manifesto = 'Cada proyecto que entregamos transforma la manera en que Uruguay se conecta, construye y crece hacia el futuro.'
 
   return (
-    <section id="proyectos" ref={sectionRef} className="py-32 md:py-48 px-6 bg-franil-surface/20">
+    <section id="proyectos" ref={sectionRef} className="py-20 md:py-28 px-6 bg-franil-surface/20">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
+        <div className="mb-10">
           <p className="text-franil-accent text-sm font-semibold tracking-widest uppercase mb-4">Proyectos destacados</p>
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.05] tracking-[-0.025em] text-franil-text max-w-xl">
-            Obra real, impacto duradero
+            Nuestros proyectos destacados
           </h2>
         </div>
 
-        <div className="scrub-text mb-20">
-          <p className="text-[clamp(1.4rem,2.8vw,2.4rem)] font-semibold leading-snug text-franil-muted max-w-4xl">
-            {manifesto.split(' ').map((word, i) => (
-              <span key={i} className="scrub-word inline-block mr-[0.25em]" style={{ opacity: 0.12 }}>{word}</span>
-            ))}
-          </p>
-        </div>
-
-        <div className="space-y-6">
+        <div className="space-y-4">
           {PROJECTS.map((p, i) => (
             <div
               key={p.title}
-              className="group overflow-hidden rounded-3xl glass-card border border-franil-border hover:border-franil-accent/30 transition-all duration-500 cursor-pointer"
-              onClick={() => setActive(active === i ? -1 : i)}
+              className="rounded-3xl glass-card border border-franil-border"
             >
               <div className="flex items-center justify-between p-6 md:p-8">
                 <div className="flex items-center gap-5">
@@ -638,21 +627,6 @@ function Projects() {
                     </div>
                   </div>
                 </div>
-                <ChevronRight
-                  size={20}
-                  className={`text-franil-muted transition-transform duration-300 ${active === i ? 'rotate-90' : ''}`}
-                />
-              </div>
-
-              <div className={`overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${active === i ? 'max-h-[500px]' : 'max-h-0'}`}>
-                <div
-                  data-project-img={i}
-                  className="mx-6 mb-6 rounded-2xl overflow-hidden h-[280px] md:h-[380px] bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url(${p.img})`,
-                    filter: 'grayscale(20%) contrast(110%) brightness(0.75)',
-                  }}
-                />
               </div>
             </div>
           ))}
@@ -677,7 +651,7 @@ function Technology() {
       label: 'Microtúnel',
       title: 'Tuneleras de Microtúnel',
       desc: 'Para proyectos urbanos de gran escala, nuestras tuneleras avanzan metros por hora con control remoto total y mínima afectación.',
-      img: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?w=900&q=80',
+      img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&q=80',
     },
     {
       label: 'HDPE',
@@ -707,7 +681,7 @@ function Technology() {
   }, [])
 
   return (
-    <section id="tecnología" ref={sectionRef} className="py-32 md:py-48 px-6">
+    <section id="tecnología" ref={sectionRef} className="py-20 md:py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="tech-title mb-16">
           <p className="text-franil-accent text-sm font-semibold tracking-widest uppercase mb-4">Nuestra tecnología</p>
@@ -756,6 +730,34 @@ function Technology() {
 
 function Contact() {
   const sectionRef = useRef(null)
+  const [status, setStatus] = useState('idle') // idle | sending | ok | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const form = e.target
+    const data = {
+      nombre: form.nombre.value,
+      empresa: form.empresa.value,
+      email: form.email.value,
+      mensaje: form.mensaje.value,
+    }
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (res.ok) {
+        setStatus('ok')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -771,7 +773,7 @@ function Contact() {
   }, [])
 
   return (
-    <section id="contacto" ref={sectionRef} className="py-32 md:py-48 px-6">
+    <section id="contacto" ref={sectionRef} className="py-20 md:py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="contact-card glass-card rounded-3xl overflow-hidden relative">
           <div
@@ -813,7 +815,7 @@ function Contact() {
               </div>
             </div>
 
-            <form className="flex flex-col gap-4" onSubmit={e => e.preventDefault()}>
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               {[
                 { id: 'nombre', label: 'Nombre completo', type: 'text', placeholder: 'Ej: Carlos Rodríguez' },
                 { id: 'empresa', label: 'Empresa', type: 'text', placeholder: 'Tu organización' },
@@ -823,8 +825,10 @@ function Contact() {
                   <label htmlFor={id} className="block text-franil-muted text-xs uppercase tracking-wider mb-2">{label}</label>
                   <input
                     id={id}
+                    name={id}
                     type={type}
                     placeholder={placeholder}
+                    required={id !== 'empresa'}
                     className="w-full bg-white/5 border border-franil-border rounded-xl px-4 py-3 text-franil-text text-sm placeholder-franil-border focus:outline-none focus:border-franil-accent/50 transition-colors"
                   />
                 </div>
@@ -833,17 +837,28 @@ function Contact() {
                 <label htmlFor="mensaje" className="block text-franil-muted text-xs uppercase tracking-wider mb-2">Descripción del proyecto</label>
                 <textarea
                   id="mensaje"
+                  name="mensaje"
                   rows={4}
+                  required
                   placeholder="Contanos sobre tu proyecto, ubicación y alcance estimado..."
                   className="w-full bg-white/5 border border-franil-border rounded-xl px-4 py-3 text-franil-text text-sm placeholder-franil-border focus:outline-none focus:border-franil-accent/50 transition-colors resize-none"
                 />
               </div>
+
+              {status === 'ok' && (
+                <p className="text-green-400 text-sm text-center py-2">¡Mensaje enviado! Te contactamos pronto.</p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-400 text-sm text-center py-2">Hubo un error, intentá de nuevo.</p>
+              )}
+
               <button
                 type="submit"
-                className="flex items-center justify-center gap-2.5 px-8 py-4 bg-franil-accent text-franil-dark font-bold text-sm rounded-xl hover:bg-amber-400 transition-colors duration-200 active:scale-[0.98] mt-2"
+                disabled={status === 'sending'}
+                className="flex items-center justify-center gap-2.5 px-8 py-4 bg-franil-accent text-franil-dark font-bold text-sm rounded-xl hover:bg-amber-400 transition-colors duration-200 active:scale-[0.98] mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Enviar consulta
-                <ArrowRight size={16} />
+                {status === 'sending' ? 'Enviando...' : 'Enviar consulta'}
+                {status !== 'sending' && <ArrowRight size={16} />}
               </button>
             </form>
           </div>
@@ -1007,7 +1022,7 @@ function SobreNosotros() {
   ]
 
   return (
-    <section id="sobre-nosotros" ref={sectionRef} className="py-32 md:py-48 px-6 bg-franil-surface/20">
+    <section id="sobre-nosotros" ref={sectionRef} className="py-20 md:py-28 px-6 bg-franil-surface/20">
       <div className="max-w-6xl mx-auto">
 
         <div className="sobre-block mb-20 grid md:grid-cols-2 gap-12 items-end">
@@ -1053,16 +1068,67 @@ function SobreNosotros() {
   )
 }
 
+function MapaUruguay() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.mapa-text',
+        { x: -40, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } }
+      )
+      gsap.fromTo('.mapa-video',
+        { x: 40, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } }
+      )
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section ref={sectionRef} className="py-20 md:py-28 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div className="mapa-text flex flex-col gap-6">
+          <p className="text-franil-accent text-sm font-semibold tracking-widest uppercase">Nuestra expansión</p>
+          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-black leading-[1.05] tracking-[-0.025em] text-franil-text">
+            De Montevideo<br />a todo el país
+          </h2>
+          <p className="text-franil-muted text-base leading-relaxed max-w-md">
+            Comenzamos trabajando en distintos barrios de Montevideo, creciendo con cada proyecto. Con el tiempo, llevamos esa experiencia a todo el país, llegando tanto a grandes ciudades como a pueblos del interior, siempre con el mismo compromiso y calidad en cada obra.
+          </p>
+          <div className="flex items-center gap-3 pt-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-franil-accent" />
+            <span className="text-franil-muted text-sm">Presencia en todo el territorio uruguayo</span>
+          </div>
+        </div>
+
+        <div className="mapa-video relative rounded-3xl overflow-hidden glass-card flex items-center justify-center" style={{ background: '#050810' }}>
+          <video
+            src="/mapa-uruguay.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto rounded-3xl"
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Footer() {
   return (
     <footer className="border-t border-franil-border px-6 py-12">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-franil-accent flex items-center justify-center">
-              <Drill size={16} className="text-franil-dark" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0">
+              <img src="/logo-franil.png" alt="Franil" className="w-full h-full object-contain" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-franil-text">FRANIL</span>
+            <span className="text-2xl text-franil-text tracking-widest" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>FRANIL</span>
           </div>
           <p className="text-franil-muted text-sm max-w-xs leading-relaxed">
             Infraestructura subterránea de alta calidad para el Uruguay del futuro.
@@ -1097,12 +1163,63 @@ function Footer() {
   )
 }
 
+const WA_CONTACTS = [
+  { name: 'Fabio — Director', number: '59899106464' },
+  { name: 'Franil',        number: '59899557308' },
+]
+
+function WhatsAppWidget() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="fixed bottom-6 left-6 z-[9990] flex flex-col-reverse items-start gap-3">
+      {open && (
+        <div className="flex flex-col gap-2 mb-1">
+          {WA_CONTACTS.map(c => (
+            <a
+              key={c.number}
+              href={`https://wa.me/${c.number}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl glass-card border border-franil-border hover:border-[#25D366]/40 hover:bg-[#25D366]/5 transition-all duration-200 group"
+            >
+              <div className="w-7 h-7 rounded-full bg-[#25D366]/20 border border-[#25D366]/30 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#25D366">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.532 5.855L.057 23.882l6.195-1.624A11.935 11.935 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.793 9.793 0 01-5.006-1.374l-.36-.214-3.724.976.994-3.634-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+                </svg>
+              </div>
+              <span className="text-franil-text text-sm font-semibold whitespace-nowrap group-hover:text-[#25D366] transition-colors">{c.name}</span>
+            </a>
+          ))}
+        </div>
+      )}
+
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 active:scale-95"
+        style={{ background: '#25D366', boxShadow: '0 4px 24px rgba(37,211,102,0.35)' }}
+      >
+        {open ? (
+          <X size={22} color="white" />
+        ) : (
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.532 5.855L.057 23.882l6.195-1.624A11.935 11.935 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.793 9.793 0 01-5.006-1.374l-.36-.214-3.724.976.994-3.634-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+          </svg>
+        )}
+      </button>
+    </div>
+  )
+}
+
 export default function App() {
   const [ready, setReady] = useState(false)
 
   return (
     <>
       {!ready && <Preloader onComplete={() => setReady(true)} />}
+      <WhatsAppWidget />
       <main
         className="w-full max-w-full grain-overlay"
         style={{ overflowX: 'clip', visibility: ready ? 'visible' : 'hidden' }}
@@ -1110,12 +1227,13 @@ export default function App() {
         <Navbar />
         <VideoReel />
         <SobreNosotros />
+        <MapaUruguay />
         <Hero />
         <Marquee />
         <Services />
-        <Machines />
+        {/* <Machines /> */}
         <Projects />
-        <Technology />
+        {/* <Technology /> */}
         <Contact />
         <Footer />
       </main>
