@@ -211,14 +211,14 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-franil-dark/60 via-transparent to-franil-dark" />
       <div className="absolute inset-0 bg-radial-gradient" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,122,26,0.08) 0%, transparent 70%)' }} />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-28 pb-40 text-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-28 pb-72 md:pb-40 text-center">
         <div ref={titleRef} className="mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-franil-accent/30 bg-franil-accent/10 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-franil-accent animate-pulse" />
             <span className="text-franil-accent text-xs font-semibold tracking-widest uppercase">Uruguay · Desde 2001</span>
           </div>
 
-          <h1 className="text-[clamp(3rem,6vw,6rem)] font-black leading-[0.95] tracking-[-0.03em] text-franil-text max-w-5xl mx-auto">
+          <h1 className="text-[clamp(2.5rem,6vw,6rem)] font-black leading-[1.05] md:leading-[0.95] tracking-[-0.03em] text-franil-text max-w-5xl mx-auto">
             Infraestructura que{' '}
             <span className="relative inline-block">
               <span className="text-accent-gradient">conecta</span>
@@ -227,22 +227,22 @@ function Hero() {
           </h1>
         </div>
 
-        <p ref={subtitleRef} className="text-franil-muted text-[clamp(1rem,1.5vw,1.25rem)] font-light max-w-2xl mx-auto leading-relaxed mb-10">
+        <p ref={subtitleRef} className="text-franil-muted text-[clamp(1rem,1.5vw,1.25rem)] font-light max-w-2xl mx-auto leading-relaxed mb-8">
           Tendido de fibra óptica, perforación horizontal y redes de cañerías subterráneas.
           Desde el primer kilómetro hasta los proyectos más complejos con tuneleras de última generación.
         </p>
 
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-10">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
           <a
             href="#servicios"
-            className="inline-flex items-center gap-2.5 px-8 py-4 bg-franil-accent text-franil-dark font-bold text-base rounded-2xl hover:bg-amber-400 transition-all duration-200 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-franil-accent text-franil-dark font-bold text-base rounded-2xl hover:bg-amber-400 transition-all duration-200 active:scale-[0.98]"
           >
             <span className="leading-none">Ver servicios</span>
             <ArrowRight size={18} className="shrink-0" />
           </a>
           <a
             href="#proyectos"
-            className="inline-flex items-center gap-2.5 px-8 py-4 glass-card text-franil-text font-semibold text-base rounded-2xl hover:border-franil-accent/30 transition-all duration-200 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 glass-card text-franil-text font-semibold text-base rounded-2xl hover:border-franil-accent/30 transition-all duration-200 active:scale-[0.98]"
           >
             <span className="leading-none">Proyectos realizados</span>
             <ChevronRight size={18} className="shrink-0 text-franil-muted" />
@@ -323,18 +323,25 @@ function Services() {
                 key={s.title}
                 ref={el => cardsRef.current[i] = el}
                 className={`${s.span} glass-card card-hover rounded-3xl overflow-hidden group relative min-h-[280px]`}
+                onMouseEnter={e => {
+                  const bg = e.currentTarget.querySelector('[data-card-bg]')
+                  if (bg) bg.style.filter = 'grayscale(0%) contrast(110%) brightness(0.9)'
+                }}
+                onMouseLeave={e => {
+                  const bg = e.currentTarget.querySelector('[data-card-bg]')
+                  if (bg) bg.style.filter = 'grayscale(20%) contrast(110%) brightness(0.5)'
+                }}
               >
                 <div
+                  data-card-bg=""
                   className="absolute inset-0 bg-cover bg-center group-hover:scale-105"
                   style={{
                     backgroundImage: `url(${s.img})`,
                     filter: 'grayscale(20%) contrast(110%) brightness(0.5)',
                     transition: 'transform 0.7s ease-out, filter 0.5s ease-out',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(110%) brightness(0.9)'}
-                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(20%) contrast(110%) brightness(0.5)'}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-franil-dark/90 via-franil-dark/30 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-franil-dark/90 via-franil-dark/30 to-transparent transition-opacity duration-500 group-hover:opacity-30" />
                 <div className="relative z-10 h-full flex flex-col justify-end p-7">
                   <div className="mb-4 inline-flex w-10 h-10 rounded-xl bg-franil-accent/20 border border-franil-accent/30 items-center justify-center">
                     <Icon size={18} className="text-franil-accent" />
@@ -498,18 +505,27 @@ function Machines() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {MACHINES.map((m, i) => (
             <div key={m.name} ref={el => cardsRef.current[i] = el} className="flex flex-col gap-3">
-              <div className="group relative rounded-3xl overflow-hidden aspect-[4/3] glass-card cursor-default">
+              <div
+                className="group relative rounded-3xl overflow-hidden aspect-[4/3] glass-card cursor-default"
+                onMouseEnter={e => {
+                  const bg = e.currentTarget.querySelector('[data-card-bg]')
+                  if (bg) bg.style.filter = 'grayscale(0%) contrast(110%) brightness(0.9)'
+                }}
+                onMouseLeave={e => {
+                  const bg = e.currentTarget.querySelector('[data-card-bg]')
+                  if (bg) bg.style.filter = 'grayscale(25%) contrast(110%) brightness(0.45)'
+                }}
+              >
                 <div
+                  data-card-bg=""
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage: `url(${m.img})`,
                     filter: 'grayscale(25%) contrast(110%) brightness(0.45)',
                     transition: 'transform 0.7s ease-out, filter 0.5s ease-out',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(110%) brightness(0.8)'}
-                  onMouseLeave={e => e.currentTarget.style.filter = 'grayscale(25%) contrast(110%) brightness(0.45)'}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-franil-dark/95 via-franil-dark/20 to-transparent transition-opacity duration-500 group-hover:opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-franil-dark/95 via-franil-dark/20 to-transparent transition-opacity duration-500 group-hover:opacity-30" />
 
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-franil-accent/20 border border-franil-accent/30 text-franil-accent backdrop-blur-sm">
@@ -959,7 +975,7 @@ function VideoReel() {
   }, [ready])
 
   return (
-    <div ref={wrapperRef} style={{ height: '200vh' }}>
+    <div ref={wrapperRef} style={{ height: isDesktop ? '200vh' : '130vh' }}>
       <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', background: '#050810' }}>
 
         {!ready && (
@@ -977,6 +993,8 @@ function VideoReel() {
           ref={canvasRef}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: ready ? 'block' : 'none' }}
         />
+
+        {!isDesktop && <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '25%', background: 'linear-gradient(to bottom, transparent 0%, #050810 70%)', pointerEvents: 'none', zIndex: 5 }} />}
 
       </div>
     </div>
@@ -998,7 +1016,7 @@ function SobreNosotros() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 75%',
+            start: 'top bottom',
           }
         }
       )
@@ -1022,7 +1040,7 @@ function SobreNosotros() {
   ]
 
   return (
-    <section id="sobre-nosotros" ref={sectionRef} className="py-20 md:py-28 px-6 bg-franil-surface/20">
+    <section id="sobre-nosotros" ref={sectionRef} className="pt-0 pb-20 md:py-28 px-6 bg-franil-surface/20">
       <div className="max-w-6xl mx-auto">
 
         <div className="sobre-block mb-20 grid md:grid-cols-2 gap-12 items-end">
@@ -1157,7 +1175,6 @@ function Footer() {
 
       <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-franil-border flex flex-col md:flex-row justify-between gap-2">
         <p className="text-franil-border text-xs">© 2025 Franil S.A. — Montevideo, Uruguay. Todos los derechos reservados.</p>
-        <p className="text-franil-border text-xs">RUT: XX.XXX.XXX-X</p>
       </div>
     </footer>
   )
