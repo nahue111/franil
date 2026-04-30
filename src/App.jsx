@@ -905,7 +905,7 @@ function VideoReel() {
     framesRef.current = new Array(TOTAL_FRAMES)
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image()
-      img.src = `${frameFolder}/frame_${String(i + 1).padStart(4, '0')}.jpg`
+      img.src = `${frameFolder}/frame_${String(i + 1).padStart(4, '0')}.webp`
       img.onload = () => {
         framesRef.current[i] = img
         loadedRef.current++
