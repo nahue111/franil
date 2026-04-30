@@ -1007,7 +1007,7 @@ function SobreNosotros() {
   }, [])
 
   const values = [
-    { title: 'Trayectoria', desc: 'Más de 16 años en el rubro de la construcción, volcados a obras de infraestructura y mantenimiento de telefonía y electricidad en todo el Uruguay.' },
+    { title: 'Trayectoria', desc: 'Más de 14 años en el rubro de la construcción, volcados a obras de infraestructura y mantenimiento de telefonía y electricidad en todo el Uruguay.' },
     { title: 'Alcance nacional', desc: 'Proyectos ejecutados en Montevideo, Canelones, San José, Colonia y Soriano, tanto para ANTEL, UTE como para la Intendencia de Montevideo.' },
     { title: 'Sede', desc: 'Oficinas y obrador central en Calle B entre Pedro Marabotto y Justo Alvarez, San Bautista, Canelones.' },
   ]
@@ -1035,7 +1035,7 @@ function SobreNosotros() {
             </h2>
           </div>
           <p className="text-franil-muted text-lg leading-relaxed">
-            FRANIL S.R.L. es una empresa uruguaya con más de 16 años de experiencia en infraestructura
+            FRANIL S.R.L. es una empresa uruguaya con más de 14 años de experiencia en infraestructura
             de telecomunicaciones y electricidad. Desde San Bautista, Canelones, operamos en todo
             el país ejecutando obras para ANTEL, UTE e intendencias departamentales.
           </p>
