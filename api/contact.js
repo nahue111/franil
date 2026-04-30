@@ -69,7 +69,7 @@ export default async function handler(req, res) {
   const safeMensaje = escapeHtml(mensaje).replace(/\n/g, '<br/>')
 
   try {
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: 'Franil Contacto <noreply@franil.com.uy>',
       to: 'abril@franil.com.uy',
       reply_to: email,
@@ -89,8 +89,14 @@ export default async function handler(req, res) {
       `,
     })
 
+    if (sendError) {
+      console.error('Resend error:', sendError)
+      return res.status(500).json({ error: 'Error al enviar el mensaje' })
+    }
+
     return res.status(200).json({ ok: true })
   } catch (error) {
+    console.error('Unexpected error:', error)
     return res.status(500).json({ error: 'Error al enviar el mensaje' })
   }
 }
