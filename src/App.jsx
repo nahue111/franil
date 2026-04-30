@@ -52,7 +52,7 @@ const SERVICES = [
 ]
 
 const STATS = [
-  { value: '23+', label: 'Años de experiencia' },
+  { value: '14+', label: 'Años de experiencia' },
   { value: '340+', label: 'Proyectos completados' },
   { value: '1.800km', label: 'De tendido instalado' },
   { value: '97%', label: 'Satisfacción del cliente' },
