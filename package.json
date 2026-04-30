@@ -16,6 +16,9 @@
     "react-dom": "^19.2.5",
     "resend": "^6.12.2"
   },
+  "overrides": {
+    "svix": "1.92.2"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@types/react": "^19.2.14",
