@@ -6,12 +6,17 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 const rateLimitMap = new Map()
 const WINDOW_MS = 60 * 1000
 const MAX_REQUESTS = 3
+const MAX_MAP_SIZE = 5000
 
 function isRateLimited(ip) {
   const now = Date.now()
   const cutoff = now - WINDOW_MS
   const timestamps = (rateLimitMap.get(ip) ?? []).filter(t => t > cutoff)
   timestamps.push(now)
+  // Cap map size to prevent memory exhaustion under distributed probing
+  if (!rateLimitMap.has(ip) && rateLimitMap.size >= MAX_MAP_SIZE) {
+    rateLimitMap.delete(rateLimitMap.keys().next().value)
+  }
   rateLimitMap.set(ip, timestamps)
   return timestamps.length > MAX_REQUESTS
 }
@@ -34,7 +39,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const ip = req.headers['x-forwarded-for']?.split(',')[0].trim() ?? 'unknown'
+  // Use last entry in x-forwarded-for: Vercel appends the real IP last,
+  // so taking [0] would let attackers bypass the limiter with a spoofed header.
+  const forwarded = req.headers['x-forwarded-for']
+  const ip = (forwarded ? forwarded.split(',').at(-1).trim() : null)
+    ?? req.headers['x-real-ip']
+    ?? 'unknown'
   if (isRateLimited(ip)) {
     return res.status(429).json({ error: 'Demasiadas solicitudes, esperá un momento.' })
   }
