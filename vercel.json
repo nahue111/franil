@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/webmail",
+      "destination": "https://webmail.franil.com.uy",
+      "permanent": true
+    },
+    {
+      "source": "/webmail/:path*",
+      "destination": "https://webmail.franil.com.uy/:path*",
+      "permanent": true
+    }
+  ]
+}
