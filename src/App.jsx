@@ -1165,7 +1165,7 @@ function Footer() {
 
 const WA_CONTACTS = [
   { name: 'Fabio — Director', number: '59899106464' },
-  { name: 'Franil',        number: '59899557308' },
+  { name: 'Franil',        number: '59898557308' },
 ]
 
 function WhatsAppWidget() {
