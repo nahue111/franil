@@ -59,9 +59,9 @@ const STATS = [
 ]
 
 const MARQUEE_ITEMS = [
-  'Fibra Óptica', 'Perforación Horizontal', 'Tuneleras HDD', 'Cañerías HDPE',
-  'Ductos Eléctricos', 'Infraestructura Subterránea', 'Uruguay', 'Fibra Óptica',
-  'Perforación Horizontal', 'Tuneleras HDD', 'Cañerías HDPE', 'Ductos Eléctricos',
+  'Obra Civil', 'Montajes', 'Empalmes', 'Perforaciones',
+  'Telecomunicaciones', 'Electricidad', 'Uruguay', 'Obra Civil',
+  'Montajes', 'Empalmes', 'Perforaciones', 'Telecomunicaciones',
 ]
 
 const PROJECTS = [
@@ -228,8 +228,8 @@ function Hero() {
         </div>
 
         <p ref={subtitleRef} className="text-franil-muted text-[clamp(1rem,1.5vw,1.25rem)] font-light max-w-2xl mx-auto leading-relaxed mb-8">
-          Tendido de fibra óptica, perforación horizontal y redes de cañerías subterráneas.
-          Desde el primer kilómetro hasta los proyectos más complejos con tuneleras de última generación.
+          Obra civil, montajes, empalmes y perforaciones para telecomunicaciones y electricidad.
+          Desde el primer proyecto hasta los más complejos, en todo el Uruguay.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
@@ -808,7 +808,7 @@ function Contact() {
                 Cada proyecto comienza con una conversación
               </h2>
               <p className="text-franil-muted leading-relaxed mb-10">
-                Desde tendidos de fibra óptica de largo alcance hasta perforaciones complejas en entornos urbanos.
+                Obra civil, montajes, empalmes y perforaciones para telecomunicaciones y electricidad.
                 El equipo de Franil está listo para analizar tu proyecto.
               </p>
 
@@ -1053,9 +1053,9 @@ function SobreNosotros() {
             </h2>
           </div>
           <p className="text-franil-muted text-lg leading-relaxed">
-            FRANIL S.R.L. es una empresa uruguaya con más de 14 años de experiencia en infraestructura
-            de telecomunicaciones y electricidad. Desde San Bautista, Canelones, operamos en todo
-            el país ejecutando obras para ANTEL, UTE e intendencias departamentales.
+            FRANIL S.R.L. es una empresa uruguaya con más de 14 años de experiencia en obra civil,
+            montajes, empalmes y perforaciones para telecomunicaciones y electricidad. Desde San Bautista,
+            Canelones, operamos en todo el país ejecutando obras para ANTEL, UTE e intendencias departamentales.
           </p>
         </div>
 
@@ -1149,7 +1149,7 @@ function Footer() {
             <span className="text-2xl text-franil-text tracking-widest" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>FRANIL</span>
           </div>
           <p className="text-franil-muted text-sm max-w-xs leading-relaxed">
-            Infraestructura subterránea de alta calidad para el Uruguay del futuro.
+            Obra civil, montajes, empalmes y perforaciones para el Uruguay del futuro.
           </p>
         </div>
 
