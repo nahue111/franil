@@ -14,40 +14,33 @@ const NAV_LINKS = ['Servicios', 'Proyectos', 'Tecnología', 'Contacto']
 
 const SERVICES = [
   {
-    icon: Wifi,
-    title: 'Tendido de Fibra Óptica',
-    desc: 'Instalación de redes de alta velocidad para telecomunicaciones residenciales, comerciales e industriales.',
-    img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&q=80',
+    icon: Truck,
+    title: 'Obra Civil',
+    desc: 'Excavaciones, movimiento de tierra y construcción de infraestructura para telecomunicaciones y electricidad en todo el país.',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
     span: 'col-span-12 md:col-span-7 row-span-2',
     big: true,
   },
   {
-    icon: Drill,
-    title: 'Perforación Horizontal',
-    desc: 'Cruzamos calles, rutas y obstáculos sin excavación superficial.',
+    icon: Layers,
+    title: 'Montajes',
+    desc: 'Instalación y puesta en marcha de equipos y estructuras para redes de telecomunicaciones y electricidad.',
     img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=700&q=80',
     span: 'col-span-12 md:col-span-5 row-span-1',
   },
   {
-    icon: Layers,
-    title: 'Instalación de Cañerías',
-    desc: 'Todo tipo de ductos: agua, gas, electricidad y telecomunicaciones.',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80',
+    icon: Wifi,
+    title: 'Empalmes',
+    desc: 'Empalme de cables de fibra óptica y electricidad con equipamiento especializado y personal certificado.',
+    img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=700&q=80',
     span: 'col-span-12 md:col-span-5 row-span-1',
   },
   {
-    icon: Truck,
-    title: 'Tuneleras de Gran Escala',
-    desc: 'Equipamiento de última generación para proyectos de infraestructura mayor.',
-    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
-    span: 'col-span-12 md:col-span-8 row-span-1',
-  },
-  {
-    icon: Shield,
-    title: 'Mantenimiento y Diagnóstico',
-    desc: 'Monitoreo continuo y reparación de redes subterráneas.',
-    img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80',
-    span: 'col-span-12 md:col-span-4 row-span-1',
+    icon: Drill,
+    title: 'Perforaciones',
+    desc: 'Perforación horizontal dirigida (HDD) para cruzar calles, rutas y obstáculos sin afectar la superficie.',
+    img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=80',
+    span: 'col-span-12 row-span-1',
   },
 ]
 
@@ -1157,7 +1150,7 @@ function Footer() {
           <div>
             <p className="text-franil-muted text-xs uppercase tracking-widest mb-4">Servicios</p>
             <ul className="space-y-2">
-              {['Fibra Óptica', 'Perforación HDD', 'Cañerías', 'Microtúnel'].map(s => (
+              {['Obra Civil', 'Montajes', 'Empalmes', 'Perforaciones'].map(s => (
                 <li key={s}><a href="#servicios" className="text-franil-muted text-sm hover:text-franil-text transition-colors">{s}</a></li>
               ))}
             </ul>
