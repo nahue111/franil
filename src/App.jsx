@@ -10,7 +10,12 @@ import './App.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const NAV_LINKS = ['Servicios', 'Proyectos', 'Tecnología', 'Contacto']
+const NAV_LINKS = [
+  { label: 'Sobre nosotros', id: 'sobre-nosotros' },
+  { label: 'Servicios',      id: 'servicios' },
+  { label: 'Proyectos',      id: 'proyectos' },
+  { label: 'Contacto',       id: 'contacto' },
+]
 
 const SERVICES = [
   {
@@ -103,12 +108,12 @@ function Navbar() {
 
         <ul className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
-            <li key={link}>
+            <li key={link.id}>
               <a
-                href={`#${link.toLowerCase()}`}
+                href={`#${link.id}`}
                 className="px-4 py-2 text-sm font-medium text-franil-muted hover:text-franil-text rounded-xl transition-colors duration-200 hover:bg-white/5"
               >
-                {link}
+                {link.label}
               </a>
             </li>
           ))}
@@ -136,12 +141,12 @@ function Navbar() {
         <div className="md:hidden mx-4 mt-2 glass-card rounded-2xl p-4 flex flex-col gap-1">
           {NAV_LINKS.map((link) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={link.id}
+              href={`#${link.id}`}
               className="px-4 py-3 text-sm font-medium text-franil-muted hover:text-franil-text rounded-xl hover:bg-white/5 transition-colors"
               onClick={() => setOpen(false)}
             >
-              {link}
+              {link.label}
             </a>
           ))}
           <a

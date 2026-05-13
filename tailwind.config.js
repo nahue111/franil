@@ -16,7 +16,7 @@ export default {
           surface: '#0F1420',
           border: '#1A2035',
           text: '#F4F1EC',
-          muted: '#8A95A8',
+          muted: '#C2CBD8',
           accent: '#E87A1A',
           'accent-dim': '#B85D10',
           cyan: '#00B4D8',
