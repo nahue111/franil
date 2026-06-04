@@ -55,25 +55,6 @@ export default function Preloader({ onComplete }) {
         .to(bucketRef.current, { rotation: 35, duration: 0.25 })
         .to(dirtRef.current, { x: 14, opacity: 0, duration: 0.35 }, '-=0.1')
 
-      // Progress bar
-      gsap.to(progressRef.current, {
-        scaleX: 1,
-        duration: tl.totalDuration() * 0.85,
-        ease: 'power1.inOut',
-        transformOrigin: 'left center',
-      })
-
-      // Counter
-      gsap.to({ val: 0 }, {
-        val: 100,
-        duration: tl.totalDuration() * 0.85,
-        ease: 'power1.inOut',
-        onUpdate: function () {
-          if (counterRef.current)
-            counterRef.current.textContent = Math.round(this.targets()[0].val) + '%'
-        },
-      })
-
       // Exit
       tl.to(logoRef.current, { y: -20, opacity: 0, duration: 0.4, ease: 'power2.in' }, '+=0.1')
         .to(rootRef.current, {
@@ -82,6 +63,28 @@ export default function Preloader({ onComplete }) {
           ease: 'power3.inOut',
           onComplete,
         }, '-=0.05')
+
+      tl.timeScale(2.5)
+      const scaledDuration = tl.totalDuration() / tl.timeScale()
+
+      // Progress bar
+      gsap.to(progressRef.current, {
+        scaleX: 1,
+        duration: scaledDuration * 0.78,
+        ease: 'power1.inOut',
+        transformOrigin: 'left center',
+      })
+
+      // Counter
+      gsap.to({ val: 0 }, {
+        val: 100,
+        duration: scaledDuration * 0.78,
+        ease: 'power1.inOut',
+        onUpdate: function () {
+          if (counterRef.current)
+            counterRef.current.textContent = Math.round(this.targets()[0].val) + '%'
+        },
+      })
     }, rootRef)
 
     return () => ctx.revert()

@@ -213,7 +213,7 @@ function Hero() {
         <div ref={titleRef} className="mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-franil-accent/30 bg-franil-accent/10 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-franil-accent animate-pulse" />
-            <span className="text-franil-accent text-xs font-semibold tracking-widest uppercase">Uruguay · Desde 2012</span>
+            <span className="text-franil-accent text-xs font-semibold tracking-widest uppercase">Uruguay · Desde 2011</span>
           </div>
 
           <h1 className="text-[clamp(2.5rem,6vw,6rem)] font-black leading-[1.05] md:leading-[0.95] tracking-[-0.03em] text-franil-text max-w-5xl mx-auto">
